@@ -265,4 +265,9 @@ for (i in 1:nrow(dayCol)){
 DataFile <- cbind(DataFile,dayCol)
 WorkFile3 <- aggregate(DataFile$steps,list(Interval=DataFile$interval,DayOfWeek=DataFile$Day_Of_Week),FUN=mean)
 names(WorkFile3) <- c("Interval","DayOfWeek","Mean")
+
+library(lattice)
+xyplot(WorkFile3$Mean ~ WorkFile3$Interval | WorkFile3$DayOfWeek,layout= c(1,2),type="l",xlab="Interval",ylab="Number of Steps")
 ```
+
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
